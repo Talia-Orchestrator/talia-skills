@@ -1,0 +1,9 @@
+{
+  "id": "talia-skills/example-skill",
+  "kind": "skill",
+  "version": "1.0.0",
+  "name": "Example Skill",
+  "description": "Describe the skill's purpose and supported inputs.",
+  "publisher": "talia-skills",
+  "license": "MIT"
+}
