@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
-          repository: Talia-orchestator/talia-store
+          repository: Talia-Orchestrator/talia-store
           path: .ci/talia-store
       - uses: actions/checkout@v4
         with:
-          repository: Talia-orchestator/talia-agents
+          repository: Talia-Orchestrator/talia-agents
           path: .ci/talia-agents
       - uses: actions/setup-node@v4
         with:
