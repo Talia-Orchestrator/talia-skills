@@ -13,3 +13,6 @@
 *.node -text
 *.woff -text
 *.woff2 -text
+
+# Conservare i byte dei sorgenti upstream coperti dagli hash di provenienza.
+packages/impeccable-ui/upstream/** -text
