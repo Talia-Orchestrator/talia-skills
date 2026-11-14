@@ -1,6 +1,6 @@
 # Talia Skills
 
-Public, text-first Talia skill packages. Each package includes `SKILL.md` and any supporting references or assets. The repository preserves the existing specialist library; 27 skill packages are present in source; guided-plan requires the coordinated signed catalog update in talia-store before Store availability is claimed.
+Public, text-first Talia skill packages. Each package includes `SKILL.md` and any supporting references or assets. The repository preserves the existing specialist library; 27 skills are present in source. The guided-plan update is local source; signed catalog publication is a separate release operation.
 
 The general shared set is `source-synthesis`, `material-organizer`, `project-brief`, and `deliverable-review`. Five product system skills remain in the desktop core and are not redistributed as marketplace skill packages.
 

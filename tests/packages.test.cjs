@@ -48,13 +48,16 @@ test('Impeccable package preserves pinned upstream content, licenses and resolva
   }
 });
 
-
 test('guided-plan preserves requirements, explicit confirmation and host safety gates', () => {
   const skill = fs.readFileSync(path.join(root, 'guided-plan', 'SKILL.md'), 'utf8');
-  assert.match(skill, /Raccogli le informazioni/);
-  assert.match(skill, /Presenta il piano/);
+  assert.match(skill, /Leggi prima di chiedere/);
+  assert.match(skill, /Raccogli senza perdere il contesto/);
+  assert.match(skill, /Presenta il piano prima di agire/);
   assert.match(skill, /solo dopo conferma esplicita/);
   assert.match(skill, /Le conferme di sicurezza dell.host restano obbligatorie/);
-  assert.match(skill, /Se l.utente declina.*non attuare nulla/);
-  assert.ok(skill.indexOf('Presenta il piano') < skill.indexOf('Se l\'utente conferma'));
+  assert.match(skill, /Con `save`, rifiuto o annullamento non eseguire il piano/);
+  assert.match(skill, /non costituiscono approvazione/);
+  assert.match(skill, /domini realmente chiusi/);
+  assert.match(skill, /non preselezionare approvazioni/);
+  assert.ok(skill.indexOf('Presenta il piano prima di agire') < skill.indexOf('Esegui soltanto dopo approvazione esplicita'));
 });
