@@ -5,8 +5,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..', 'packages');
 const dirs = fs.readdirSync(root).filter(name => fs.statSync(path.join(root, name)).isDirectory()).sort();
-test('source preserves 26 skill packages and the four shared general skills', () => {
-  assert.equal(dirs.length, 26);
+test('source preserves 27 skill packages and the four shared general skills', () => {
+  assert.equal(dirs.length, 27);
   for (const id of ['source-synthesis', 'material-organizer', 'project-brief', 'deliverable-review']) assert.ok(dirs.includes(id));
   const ids = new Set();
   for (const dir of dirs) {
@@ -46,4 +46,15 @@ test('Impeccable package preserves pinned upstream content, licenses and resolva
   for (const launcher of ['impeccable', 'impeccable.cmd', 'VERSION', 'engine-checksums.txt']) {
     assert.ok(fs.statSync(path.join(packageRoot, 'upstream/scripts', launcher)).isFile());
   }
+});
+
+
+test('guided-plan preserves requirements, explicit confirmation and host safety gates', () => {
+  const skill = fs.readFileSync(path.join(root, 'guided-plan', 'SKILL.md'), 'utf8');
+  assert.match(skill, /Raccogli le informazioni/);
+  assert.match(skill, /Presenta il piano/);
+  assert.match(skill, /solo dopo conferma esplicita/);
+  assert.match(skill, /Le conferme di sicurezza dell.host restano obbligatorie/);
+  assert.match(skill, /Se l.utente declina.*non attuare nulla/);
+  assert.ok(skill.indexOf('Presenta il piano') < skill.indexOf('Se l\'utente conferma'));
 });
