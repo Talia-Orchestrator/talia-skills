@@ -5,8 +5,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..', 'packages');
 const dirs = fs.readdirSync(root).filter(name => fs.statSync(path.join(root, name)).isDirectory()).sort();
-test('source preserves 27 skill packages and the four shared general skills', () => {
-  assert.equal(dirs.length, 27);
+test('source preserves 28 skill packages and the four shared general skills', () => {
+  assert.equal(dirs.length, 28);
   for (const id of ['source-synthesis', 'material-organizer', 'project-brief', 'deliverable-review']) assert.ok(dirs.includes(id));
   const ids = new Set();
   for (const dir of dirs) {
