@@ -1,0 +1,10 @@
+{
+  "id": "talia-skills/plan",
+  "kind": "skill",
+  "version": "1.0.0",
+  "name": "plan",
+  "description": "Conversational planning: clarify choices with host forms, wait for answers, and propose a verifiable plan before execution.",
+  "publisher": "talia-skills",
+  "license": "MIT",
+  "description_it": "Pianificazione conversazionale: chiarisce le scelte con i form dell'host, attende le risposte e propone un piano verificabile prima dell'esecuzione."
+}
