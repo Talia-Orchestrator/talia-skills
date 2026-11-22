@@ -4,11 +4,11 @@ Shared Talia skill package. The instruction entrypoint is SKILL.md; this package
 
 See LICENSE and NOTICE for license and provenance.
 
-## Integrazione 0.2.0
+## Integrazione 0.4.0
 
-Il testo `SKILL.md` è identico ai sorgenti ready e builtin guided-plan 0.2.0
+Il testo `SKILL.md` è identico ai sorgenti ready e builtin guided-plan 0.4.0
 del core: riusa il contesto, raccoglie solo i dati mancanti e propone form con
-domini chiusi o testo libero. Presenta il piano prima della conferma esplicita;
+scelte concrete o testo libero. Rivaluta ogni risposta, chiude in assenza di progresso e limita la raccolta a tre questionari per incarico. Presenta il piano prima della conferma esplicita;
 revisione, rinvio e raccolta dati non autorizzano l'esecuzione. I gate di
 sicurezza dell'host restano obbligatori.
 

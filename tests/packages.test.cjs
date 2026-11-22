@@ -50,14 +50,13 @@ test('Impeccable package preserves pinned upstream content, licenses and resolva
 
 test('guided-plan preserves requirements, explicit confirmation and host safety gates', () => {
   const skill = fs.readFileSync(path.join(root, 'guided-plan', 'SKILL.md'), 'utf8');
-  assert.match(skill, /Leggi prima di chiedere/);
-  assert.match(skill, /Raccogli senza perdere il contesto/);
-  assert.match(skill, /Presenta il piano prima di agire/);
-  assert.match(skill, /solo dopo conferma esplicita/);
-  assert.match(skill, /Le conferme di sicurezza dell.host restano obbligatorie/);
-  assert.match(skill, /Con `save`, rifiuto o annullamento non eseguire il piano/);
-  assert.match(skill, /non costituiscono approvazione/);
-  assert.match(skill, /domini realmente chiusi/);
-  assert.match(skill, /non preselezionare approvazioni/);
-  assert.ok(skill.indexOf('Presenta il piano prima di agire') < skill.indexOf('Esegui soltanto dopo approvazione esplicita'));
+  const blocks = [...skill.matchAll(/<agent-input-form>\s*(\{[\s\S]*?\})\s*<\/agent-input-form>/g)];
+  assert.equal(blocks.length, 2);
+  const [discovery, approval] = blocks.map(block => JSON.parse(block[1]));
+  assert.equal(discovery.fields[0].type, 'select');
+  const decision = approval.fields.find(field => field.id === 'plan_decision');
+  assert.deepEqual(decision.options.map(option => option.value), ['execute', 'revise', 'save']);
+  assert.ok(!Object.hasOwn(decision, 'default'));
+  assert.match(skill, /controlli di sicurezza dell.host/);
+  assert.match(skill, /rifiuta o annulla, termina senza avviare/);
 });
